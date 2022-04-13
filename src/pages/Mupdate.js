@@ -1,9 +1,9 @@
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
-import faq from './assets/jpg/faq.jpg'
+import faq from '../assets/jpg/faq.jpg'
 //import './monadi.css';
 
-function App() {
+function Mupdate() {
 
   return (
     <div>
@@ -14,7 +14,7 @@ function App() {
       <Card style={{maxWidth:650, margin:"0 auto" ,padding:"20px 5px"}}>
         <CardContent>
           <center><img src={faq} height={200} width={200} /></center>
-          <Typography gutterBottom variant='h5'>Add FAQ</Typography>
+          <Typography gutterBottom variant='h5'>Update FAQ</Typography>
           <form>
           <Grid container spacing={1}>
 
@@ -27,15 +27,15 @@ function App() {
               <TextField label="Answer" multiline rows={5} placeholder='Enter Answer Here' variant='outlined' fullWidth required />
             </Grid>
 
-            <Grid xs={6} item>
-              <Button type="submit" color="primary" variant='contained' fullWidth>Submit</Button>
+            <Grid container direction="row"  justifyContent="center" alignItems="center" xs={6}  item>
+              <Button type="submit" color="primary" variant='contained' fullWidth>Update</Button>
             </Grid>
 
           </Grid>
           </form>
 
-          <br></br><br></br><br></br>
-          <Typography variant='body2' component="p">Edit or Delete FAQ click the below button</Typography><br></br>
+          <br></br>
+          <Typography variant='body2' component="p">Edit or Delete FAQ click the below button</Typography>
             <Grid  item>
               <Button color='secondary' variant='contained' fullWidth>Manage FAQ</Button>
             </Grid>
@@ -47,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default Mupdate;

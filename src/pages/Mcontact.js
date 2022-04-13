@@ -1,7 +1,7 @@
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 
-function App() {
+function Mcontact() {
 
     return (
       <div>
@@ -47,5 +47,5 @@ function App() {
     );
   }
   
-  export default App;
+  export default Mcontact;
   

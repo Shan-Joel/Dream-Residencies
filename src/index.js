@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './Mfaq';
+//import './Mfaq.js';
 //import App from './Mcontact';
-import App from './Mupdate';
+//import App from './Mupdate';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
