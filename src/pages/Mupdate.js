@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
-import faq from './assets/jpg/faq.jpg';
+import faq from '../assets/jpg/faq.jpg';
 //import './monadi.css';
 
 function Mupdate() {

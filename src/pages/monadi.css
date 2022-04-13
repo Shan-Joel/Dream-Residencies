@@ -1,9 +1,10 @@
 
 
-.button {
+.buttonM {
     outline: none;
     border: none;
     color: #00b4a2;
-    align-self: center;
+    width: 100%;
+    margin:0 auto;
   }
   
