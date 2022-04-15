@@ -3,7 +3,6 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import {useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify'
 import Spinner from '../components/Spinner'
-import { async } from '@firebase/util'
 
 function CreateListing() {
     const [geolocationEnabled, setGeolocationEnabled] = useState(true)
@@ -72,7 +71,7 @@ function CreateListing() {
             address=${address}&key=$
             {process.env.REACT_APP_GEOCODE_API_KEY}`)
 
-            const data = response.json()
+            const data = await response.json()
 
             geolocation.lat = data.results[0]?.geometry.location.lat ??
             0
@@ -93,6 +92,7 @@ function CreateListing() {
             geolocation.lat = latitude
             geolocation.lng = longitude
             location =  address
+            
         }
 
         setLoading(false)
@@ -117,7 +117,7 @@ function CreateListing() {
         }
         
         //Text/Booleans/Numbers
-        if(!e.target.files){
+        if (!e.target.files){
             setFormData((prevState) => ({
                 ...prevState,
                 [e.target.id]: boolean ?? e.target.value
@@ -304,7 +304,7 @@ function CreateListing() {
                             }
                             type='button'
                             id='offer'
-                            value={true}
+                            value={false}
                             onClick={onMutate}
                         >
                             No
@@ -319,8 +319,8 @@ function CreateListing() {
                             id='regularPrice'
                             value={regularPrice}
                             onChange={onMutate}
-                            max='50'
-                            min='10000000000'
+                            min='50'
+                            max='10000000000'
                             required
                         />
                         {type === 'rent' && <p className='formPriceText'>$ / Month</p>}
@@ -333,28 +333,27 @@ function CreateListing() {
                             className='formInputSmall'
                             type='number'
                             id='discountedPrice'
-                            value={'discountedPrice'}
+                            value={discountedPrice}
                             onChange={onMutate}
-                            max='50'
-                            min='10000000000'
+                            min='50'
+                            max='10000000000'
                             required={offer}
                         />
                     </>
                     )} 
 
-                    {/* <label className='formLabel'>Images</label>  
+                    <label className='formLabel'>Images</label>  
                     <p className='imagesInfo'>The first image will be the cover (max 6).</p>
                     <input
                         className='formInputFile'
                         type='file'
                         id='images'
-                        value={'images'}
                         onChange={onMutate}
                         max='6'
-                        accept='.jpg,.png.,jpeg'
+                        accept='.jpg,.png,.jpeg'
                         multiple
                         required
-                    /> */}
+                    />
                     <button type='submit' className="primaryButton createListingButton">Create Listing</button>
                 </form>
             </main>
