@@ -1,25 +1,27 @@
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@material-ui/core';
-import React, { Component } from 'react';
-import faq from '../assets/jpg/faq.jpg'
+import React, { useState, useEffect } from 'react';
+import faq from '../assets/jpg/faq.jpg';
 import {useNavigate, useParams} from "react-router-dom";
 
 import './monadi.css';
 import {db} from '../firebase.config';
 import {toast} from "react-toastify";
 
+
+
 const initialState = {
   question: "",
   answer: "",
 };
 
-const AddFaq = () => {
-  const [state, setState] = setState(initialState);
-  const [data, setData] = setState({});
+const Mfaq = () => {
+  const [state, setState] = useState(initialState);
+  const [data, setData] = useState({});
 
   const {question, answer} = state;
 
   const navigate = useNavigate();
-  navigate('Mview');
+//  navigate('/Mview');
   
   //const history = useHistory();
 
@@ -29,11 +31,11 @@ const AddFaq = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefaults();
+    e.preventDefault();
     if(!question || !answer){
-      toast.error("Please provide value in each input field")
+      toast.error("Please provide value in each input field");
     }else{
-      db.child("FAQs").push(state, (err) => {
+      db.ref('FAQs').push(state, (err) => {
         if(err){
           toast.error(err);
         }
@@ -53,7 +55,7 @@ const AddFaq = () => {
 
       <Card style={{maxWidth:650, margin:"0 auto" ,padding:"20px 5px"}}>
         <CardContent>
-          <center><img src={faq} height={200} width={200} /></center>
+          {<center><img src={faq} height={200} width={200} /></center> }
           <Typography gutterBottom variant='h5'>Add FAQ</Typography>
 
           <form onSubmit={handleSubmit}>
@@ -92,5 +94,5 @@ const AddFaq = () => {
 
 };
 
-export default faq;
+export default Mfaq;
 
