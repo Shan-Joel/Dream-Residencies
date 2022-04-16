@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getAuth, updateProfile } from 'firebase/auth';
-import { updateDoc, doc } from 'firebase/firestore';
+import { updateDoc, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg'
-import homeIcon from '../assets/svg/homeIcon.svg'
+import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg';
+import homeIcon from '../assets/svg/homeIcon.svg';
 
 function Profile() {
    const auth = getAuth();
@@ -22,6 +22,18 @@ function Profile() {
    const onLogOut = () => {
       auth.signOut();
       navigate('/');
+   };
+
+   const deleteUser = async (id) => {
+      try {
+         console.log(id);
+         const delDoc = doc(db, 'users', auth.currentUser.uid);
+         await deleteDoc(delDoc);
+         navigate('/');
+         toast.success('Profile deleted successfully');
+      } catch (error) {
+         toast.error('Something went wrong. Please try again');
+      }
    };
 
    const onSubmit = async () => {
@@ -62,6 +74,9 @@ function Profile() {
                <button type="button" className="logOut" onClick={onLogOut}>
                   Logout
                </button>
+               <button type="button" className="logOut" onClick={deleteUser}>
+                  Delete Profile
+               </button>
             </div>
 
             <main>
@@ -85,10 +100,10 @@ function Profile() {
                   </form>
                </div>
 
-               <Link to='/create-listing' className='createListing'>
-                  <img src={homeIcon} alt='home' />
+               <Link to="/create-listing" className="createListing">
+                  <img src={homeIcon} alt="home" />
                   <p>Sell or Rent ypur home</p>
-                  <img src={arrowRight} alt='arrow right' />
+                  <img src={arrowRight} alt="arrow right" />
                </Link>
             </main>
          </div>
