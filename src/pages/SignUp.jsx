@@ -78,6 +78,7 @@ function SignUp() {
                         <ArrowRightIcon fill="#ffffff" width="34px" heigh="34px" />
                      </button>
                   </div> */}
+
                   <button className="signInBtn-2">Sign Up</button>
                </form>
 

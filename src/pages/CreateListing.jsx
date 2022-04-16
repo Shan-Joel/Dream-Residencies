@@ -211,7 +211,7 @@ function CreateListing() {
                   {offer && (
                      <>
                         <label className="formLabel">Discounted Price</label>
-                        <input className="formInputSmall" type="number" id="discountedPrice" value={discountedPrice} onChange={onMutate} min="50" max="10000000000" required={offer} />
+                        <input style={{ width: '100%' }} className="formInputSmall" type="number" id="discountedPrice" value={discountedPrice} onChange={onMutate} min="50" max="10000000000" required={offer} />
                      </>
                   )}
 
