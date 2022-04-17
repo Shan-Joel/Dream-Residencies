@@ -36,8 +36,12 @@ function App() {
                <Route path="/update-faq" element={<Mupdate />} Route />
                <Route path="/contact-us" element={<Mcontact />} Route />
                <Route path="/view-faq" element={<Mview />} Route />
+<<<<<<< HEAD
+               <Route path='/category/:categoryName' element={<Category/>} />
+=======
                <Route path="/manage-faq" element={<ManageFAQ />} Route/>
                <Route path='/category/:catagoryName' element={<Category/>} />
+>>>>>>> a9b5d8fc1d487903d7bd92421538bcf918dd42a9
                <Route path='/create-listing' element={<CreateListing />} />
             </Routes>
             <Navbar />
