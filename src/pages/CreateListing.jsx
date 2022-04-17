@@ -209,8 +209,9 @@ function CreateListing() {
             </header>
 
             <main>
+                <div className='form-container'>
                 <form onSubmit={onSubmit}>
-                    <label className='formLable'>Sell / Rent</label>
+                    <label className='formLabel'>Sell / Rent</label>
                     <div className="formButtons">
                         <button type='button' className={type === 'sale' ? 'formButtonActive' : 'formButton'}
                             id='type'
@@ -228,22 +229,24 @@ function CreateListing() {
                         </button>
                     </div>
 
-                    <label className='formLabel'>Name</label>
-                    <input 
-                        className='formInputName'
-                        type='text'
-                        id='name'
-                        value={name}
-                        onChange={onMutate}
-                        maxLength='32'
-                        minLength='10'
-                        required
-                    />
+                    <div className="createListingCont">
+                        <label className='formLabel'>Name</label>
+                        <input 
+                            className='formInputName'
+                            type='text'
+                            id='name'
+                            value={name}
+                            onChange={onMutate}
+                            maxLength='32'
+                            minLength='10'
+                            required
+                        />
+                    </div>
                 
 
-                <div className='formRooms flex'>
+                <div className='formRooms justify-center'>
 
-                    <div>
+                    <div className='max-w-500'>
                         <label className='formLabel'>Bedrooms</label>
                         <input 
                             className='formInputSmall'
@@ -256,7 +259,7 @@ function CreateListing() {
                             required
                         />
                     </div>
-                    <div>
+                    <div className='max-w-500'>
                         <label className='formLabel'>Bathrooms</label>
                         <input 
                             className='formInputSmall'
@@ -295,143 +298,69 @@ function CreateListing() {
                         onClick={onMutate}
                     >
                         No
-                    </button>
-                </div>
+                     </button>
+                  </div>
 
-               <label className='formLabel'>Furnished</label>
-               <div className='formButtons'>
-                   <button
-                        className={furnished ? 'formButtonActive' : 'formButton'}
-                        type='button'
-                        id='furnished'
-                        value={true}
-                        onClick={onMutate}
-                    >
+                  <label className="formLabel">Furnished</label>
+                  <div className="formButtons">
+                     <button className={furnished ? 'formButtonActive' : 'formButton'} type="button" id="furnished" value={true} onClick={onMutate}>
                         Yes
-                    </button>
-                    <button
-                        className={
-                            !furnished && furnished !== null ? 'formButtonActive'
-                            : 'formButton'
-                        }
-                        type='button'
-                        id='furnished'
-                        value={false}
-                        onClick={onMutate}
-                    >
+                     </button>
+                     <button className={!furnished && furnished !== null ? 'formButtonActive' : 'formButton'} type="button" id="furnished" value={false} onClick={onMutate}>
                         No
-                    </button>
-                </div>
+                     </button>
+                  </div>
 
-                 <label className='formLabel'>Address</label>
-                    <textarea 
-                        className='formInputAddress'
-                        type='text'
-                        id='address'
-                        value={address}
-                        onChange={onMutate}
-                        required
-                    /> 
+                  <label className="formLabel">Address</label>
+                  <textarea className="formInputAddress" type="text" id="address" value={address} onChange={onMutate} required />
 
-                    {!geolocationEnabled && (
-                        <div className='formLatLng flex'>
-                            <div>
-                                <label className='formLabel'>Latitude</label>
-                                <input 
-                                    className='formInputSmall'
-                                    type='number'
-                                    id='latitude'
-                                    value={latitude}
-                                    onChange={onMutate}
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label className='formLabel'>Longitude</label>
-                                <input 
-                                    className='formInputSmall'
-                                    type='number'
-                                    id='longitude'
-                                    value={longitude}
-                                    onChange={onMutate}
-                                    required
-                                />
-                            </div>
+                  {!geolocationEnabled && (
+                     <div className="formLatLng flex">
+                        <div>
+                           <label className="formLabel">Latitude</label>
+                           <input className="formInputSmall" type="number" id="latitude" value={latitude} onChange={onMutate} required />
                         </div>
-                    )}
+                        <div>
+                           <label className="formLabel">Longitude</label>
+                           <input className="formInputSmall" type="number" id="longitude" value={longitude} onChange={onMutate} required />
+                        </div>
+                     </div>
+                  )}
 
-                    <label className='formLabel'>Offer</label>    
-                    <div className='formButtons'>
-                        <button
-                            className={offer ? 'formButtonActive' : 'formButton'}
-                            type='button'
-                            id='offer'
-                            value={true}
-                            onClick={onMutate}
-                            >
-                            Yes        
-                        </button>
-                        <button
-                            className={
-                                !offer && offer !== null ? 'formButtonActive' : 'formButton'
-                            }
-                            type='button'
-                            id='offer'
-                            value={false}
-                            onClick={onMutate}
-                        >
-                            No
-                        </button>
-                    </div>
+                  <label className="formLabel">Offer</label>
+                  <div className="formButtons">
+                     <button className={offer ? 'formButtonActive' : 'formButton'} type="button" id="offer" value={true} onClick={onMutate}>
+                        Yes
+                     </button>
+                     <button className={!offer && offer !== null ? 'formButtonActive' : 'formButton'} type="button" id="offer" value={false} onClick={onMutate}>
+                        No
+                     </button>
+                  </div>
 
-                    <label className='formLabel'>Regular Price</label>
-                    <div className='formPriceDiv'>
-                        <input
-                            className='formInputSmall'
-                            type='number'
-                            id='regularPrice'
-                            value={regularPrice}
-                            onChange={onMutate}
-                            min='50'
-                            max='10000000000'
-                            required
-                        />
-                        {type === 'rent' && <p className='formPriceText'>$ / Month</p>}
-                    </div> 
+                  <label className="formLabel">Regular Price</label>
+                  <div className="formPriceDiv">
+                     <input className="formInputSmall w-89" type="number" id="regularPrice" value={regularPrice} onChange={onMutate} min="50" max="10000000000" required />
+                     {type === 'rent' && <p className="formPriceText">$ / Month</p>}
+                  </div>
 
-                    {offer && (
-                    <>
-                        <label className='formLabel'>Discounted Price</label>
-                        <input
-                            className='formInputSmall'
-                            type='number'
-                            id='discountedPrice'
-                            value={discountedPrice}
-                            onChange={onMutate}
-                            min='50'
-                            max='10000000000'
-                            required={offer}
-                        />
-                    </>
-                    )} 
+                  {offer && (
+                     <>
+                        <label className="formLabel">Discounted Price</label>
+                        <input style={{ width: '100%' }} className="formInputSmall" type="number" id="discountedPrice" value={discountedPrice} onChange={onMutate} min="50" max="10000000000" required={offer} />
+                     </>
+                  )}
 
-                    <label className='formLabel'>Images</label>  
-                    <p className='imagesInfo'>The first image will be the cover (max 6).</p>
-                    <input
-                        className='formInputFile'
-                        type='file'
-                        id='images'
-                        onChange={onMutate}
-                        max='6'
-                        accept='.jpg,.png,.jpeg'
-                        multiple
-                        required
-                    />
-                    <button type='submit' className="primaryButton createListingButton">Create Listing</button>
-                </form>
-            </main>
-        </div>
-    )
+                  <label className="formLabel">Images</label>
+                  <p className="imagesInfo">The first image will be the cover (max 6).</p>
+                  <input className="formInputFile" type="file" id="images" onChange={onMutate} max="6" accept=".jpg,.png,.jpeg" multiple required />
+                  <button type="submit" className="primaryButton createListingButton">
+                     Create Listing
+                  </button>
+               </form>
+            </div>
+        </main>
+    </div>
+   );
 }
 
-export default CreateListing 
+export default CreateListing;
