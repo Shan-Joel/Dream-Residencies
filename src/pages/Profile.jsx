@@ -74,7 +74,7 @@ function Profile() {
                <button type="button" className="logOut" onClick={onLogOut}>
                   Logout
                </button>
-               <button type="button" className="logOut" onClick={deleteUser}>
+               <button type="button" className="deleteBtn" onClick={deleteUser}>
                   Delete Profile
                </button>
             </div>

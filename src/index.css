@@ -1,3 +1,7 @@
+:root {
+   --red-btn: #ff5e73;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 * {
    box-sizing: border-box;
@@ -636,6 +640,19 @@ button {
    font-weight: 600;
    color: #ffffff;
    background-color: #00cc66;
+   /* padding: 0.25rem 0.75rem; */
+   padding: 8px 15px;
+   border-radius: 1rem;
+   margin-right: 1rem;
+}
+
+.deleteBtn {
+   cursor: pointer;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 1rem;
+   font-weight: 600;
+   color: #ffffff;
+   background-color: var(--red-btn);
    /* padding: 0.25rem 0.75rem; */
    padding: 8px 15px;
    border-radius: 1rem;
