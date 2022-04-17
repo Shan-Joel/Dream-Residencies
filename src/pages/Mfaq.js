@@ -6,7 +6,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import './monadi.css';
 import {db} from '../firebase.config';
 import {toast} from "react-toastify";
-import {collection, getDocs, addDoc} from "firebase/firestore";
+import {collection, getDocs, addDoc} from "@firebase/firestore";
 
 
 // const initialState = {
@@ -58,31 +58,35 @@ function Mfaq() {
 
 
 const createFAQ = async () => {
- await addDoc(userCollectionRef, {question:newQuestion, answer:newAnswer});
+  
+    await addDoc(userCollectionRef, {question:newQuestion, answer:newAnswer});
+ 
 }
 
 
-   const handleInputChange = (e) => {
-     const {name, value} = e.target;
-     setState({...state, [name]: value });
-   };
+  //  const handleInputChange = (e) => {
+  //    const {name, value} = e.target;
+  //    setState({...state, [name]: value });
+  //  };
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      if(!question || !answer){
-        toast.error("Please provide value in each input field");
-      }else{
-        db.child(db,"FAQs").push(state, (err) => {
-          if(err){
-           toast.error(err);
-          }
-         else{
-            toast.success("FAQ Added Successfully");
-          }
-        });
-       setTimeout(() => navigate.push("/"), 500);
-      }
-    };
+    //  const handleSubmit = async (e) => {
+    //    e.preventDefault();
+    //    if(!question || !answer){
+    //      toast.error("Please provide value in each input field");
+    //    }else{
+    //      db.child(db,"FAQs").push(state, (err) => {
+    //        if(err){
+    //         toast.error(err);
+    //        }
+    //       else{
+    //          toast.success("FAQ Added Successfully");
+    //        }
+    //      });
+    //     setTimeout(() => navigate.push("/"), 500);
+    //    }
+    //  };
+
+
 
   
 
@@ -100,7 +104,7 @@ const createFAQ = async () => {
           {<center><img src={faq} height={200} width={200} /></center> }
           <Typography gutterBottom variant='h5'>Add FAQ</Typography>
 
-            <form onSubmit={handleSubmit}>  
+             {/* <form>    */}
 
           <Grid container spacing={1}>
 
@@ -122,7 +126,7 @@ const createFAQ = async () => {
             </Grid>
 
           </Grid>
-            </form>  
+            {/* </form>    */}
 
           <br></br>
           <Typography variant='body2' component="p" >Edit or Delete FAQ click the below button</Typography>

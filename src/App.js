@@ -15,6 +15,8 @@ import Mcontact from './pages/Mcontact';
 import Mview from './pages/Mview';
 import ManageFAQ from './pages/ManageFAQ';
 
+import Category from './pages/Category';
+import CreateListing from './pages/CreateListing';
 
 function App() {
    return (
@@ -35,6 +37,8 @@ function App() {
                <Route path="/contact-us" element={<Mcontact />} Route />
                <Route path="/view-faq" element={<Mview />} Route />
                <Route path="/manage-faq" element={<ManageFAQ />} Route/>
+               <Route path='/category/:catagoryName' element={<Category/>} />
+               <Route path='/create-listing' element={<CreateListing />} />
             </Routes>
             <Navbar />
          </Router>

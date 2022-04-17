@@ -1,6 +1,6 @@
 import React, { Component ,useState, useEffect} from 'react';
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@material-ui/core';
-import {collection, getDocs, addDoc} from "firebase/firestore";
+import {collection, getDocs, addDoc} from "@firebase/firestore";
 import {db} from '../firebase.config';
 
 function Mcontact() {

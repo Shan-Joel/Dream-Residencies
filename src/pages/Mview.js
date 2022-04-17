@@ -2,7 +2,7 @@ import { Button, Card, CardContent, Grid, TextField, Typography } from '@materia
 import React, { Component, useEffect, useState } from 'react';
 import './monadi.css';
 import {db} from '../firebase.config';
-import {collection, getDocs} from "firebase/compat/firestore";
+import {collection, getDocs} from "@firebase/firestore";
 
 function Mview() {
 

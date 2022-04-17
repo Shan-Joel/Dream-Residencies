@@ -7,7 +7,7 @@ import Spinner from '../components/Spinner'
 import ListingItem from '../components/ListingItem'
 import { FirebaseError } from 'firebase/app'
 
-function Offers() {
+function Category() {
   const [listings, setListings] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -22,7 +22,7 @@ function Offers() {
         //Create a query
         const q = query(
           listingsRef,
-          where('Offer','==', true),
+          where('type','==',params.CategoryName),
           orderBy('timestamp','desc'),
           limit(10)
         )
@@ -47,13 +47,15 @@ function Offers() {
     }
 
     fetchListings()
-  }, [])
+  },[params.CategoryName])
 
     return (
       <div className='category'>
         <header>
           <p className="pageHeader">
-           Offers
+            {params.CategoryName === 'rent'
+              ? 'Places for rent'
+              : 'Place for sale'}
           </p>
         </header>
         
@@ -74,10 +76,10 @@ function Offers() {
           </main>
           </>
         ) : (
-          <p>There are no current offers</p>
+          <p>No listings for {params.CategoryName}</p>
         )}
       </div>
     );
   }
   
-  export default Offers
+  export default Category
