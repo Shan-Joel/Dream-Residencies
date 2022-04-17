@@ -14,7 +14,7 @@ function Category() {
   const params = useParams();
 
   useEffect(() => {
-    const fetchListings = async () => {
+    const fetchListings = async () => {   
       try {
         //Get referance
         const listingsRef = collection(db, 'listings')
@@ -22,7 +22,7 @@ function Category() {
         //Create a query
         const q = query(
           listingsRef,
-          where('type','==',params.CategoryName),
+          where('type','==',params.categoryName),
           orderBy('timestamp','desc'),
           limit(10)
         )
@@ -47,36 +47,37 @@ function Category() {
     }
 
     fetchListings()
-  },[params.CategoryName])
+  },[params.categoryName])
 
     return (
       <div className='category'>
         <header>
           <p className="pageHeader">
-            {params.CategoryName === 'rent'
+            {params.categoryName === 'rent'
               ? 'Places for rent'
               : 'Place for sale'}
           </p>
         </header>
         
-        {loading ? (
-          <Spinner /> 
-        ) : listings && listings.length > 0 ?(
+        {loading ? 
+          <Spinner />   
+         : listings && listings.length > 0 ?(
           <>
           <main>
             <ul className="categoryListings">
               {listings.map((listing) => (
-                  <ListingItem 
-                    listing={listing.data} 
-                    id={listing.id} 
-                    key={listing.id}
-                  />
+                  // <ListingItem  
+                  //   listing={listing.data} 
+                  //   id={listing.id} 
+                  //   key={listing.id}
+                  // />
+                  <ListingItem listing={listing.data} id={listing.id} key={listing.id}/>
               ))}
             </ul>
           </main>
           </>
         ) : (
-          <p>No listings for {params.CategoryName}</p>
+          <p>No listings for {params.categoryName}</p>
         )}
       </div>
     );

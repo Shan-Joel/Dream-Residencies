@@ -61,6 +61,15 @@ button {
    border-radius: 1rem;
 }
 
+.questionInput {
+   padding: 1rem 1.5rem;
+   border-radius: 1rem;
+   width: 100%;
+   border: none;
+   font-size: inherit;
+   font-family: inherit;
+}
+
 .primaryButton {
    cursor: pointer;
    background: #00cc66;
@@ -474,7 +483,7 @@ button {
 .categoryListingInfoDiv {
    display: flex;
    justify-content: space-between;
-   max-width: 275px;
+   max-width: 220px;
 }
 
 .categoryListingInfoText {
@@ -909,4 +918,26 @@ button {
    justify-content: center;
    align-items: center;
    height: 80vh;
+}
+
+.flex-center {
+   display: flex;
+   justify-content: center;
+}
+
+.mb-20 {
+   margin-bottom: 20px;
+}
+
+.answerField {
+   box-shadow: rgba(0, 0, 0, 0.11);
+   border: none;
+   background: #ffffff;
+   border-radius: 1rem;
+   height: 3rem;
+   width: 100%;
+   outline: none;
+   font-family: 'Montserrat', sans-serif;
+   padding: 0 3rem;
+   font-size: 1rem;
 }
