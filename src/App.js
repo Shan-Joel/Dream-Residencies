@@ -13,6 +13,8 @@ import Mfaq from './pages/Mfaq';
 import Mupdate from './pages/Mupdate';
 import Mcontact from './pages/Mcontact';
 import Mview from './pages/Mview';
+import ManageFAQ from './pages/ManageFAQ';
+
 
 function App() {
    return (
@@ -32,6 +34,7 @@ function App() {
                <Route path="/update-faq" element={<Mupdate />} Route />
                <Route path="/contact-us" element={<Mcontact />} Route />
                <Route path="/view-faq" element={<Mview />} Route />
+               <Route path="/manage-faq" element={<ManageFAQ />} Route/>
             </Routes>
             <Navbar />
          </Router>
