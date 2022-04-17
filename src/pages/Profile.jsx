@@ -119,7 +119,7 @@ function Profile() {
                <button type="button" className="logOut" onClick={onLogOut}>
                   Logout
                </button>
-               <button type="button" className="logOut" onClick={deleteUser}>
+               <button type="button" className="deleteBtn" onClick={deleteUser}>
                   Delete Profile
                </button>
             </div>
@@ -147,7 +147,22 @@ function Profile() {
 
                <Link to="/create-listing" className="createListing">
                   <img src={homeIcon} alt="home" />
-                  <p>Sell or Rent ypur home</p>
+                  <p>Sell or Rent your home</p>
+                  <img src={arrowRight} alt="arrow right" />
+               </Link>
+               <Link to="/add-faq" className="createListing">
+                  <img src={homeIcon} alt="home" />
+                  <p>Add FAQ</p>
+                  <img src={arrowRight} alt="arrow right" />
+               </Link>
+               <Link to="/contact-us" className="createListing">
+                  <img src={homeIcon} alt="home" />
+                  <p>Contact Us</p>
+                  <img src={arrowRight} alt="arrow right" />
+               </Link>
+               <Link to="/view-faq" className="createListing">
+                  <img src={homeIcon} alt="home" />
+                  <p>View FAQ</p>
                   <img src={arrowRight} alt="arrow right" />
                </Link>
 

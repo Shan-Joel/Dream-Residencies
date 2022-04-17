@@ -16,8 +16,8 @@ function Explore() {
          <main>
             <Slider />
 
-            <p className="exploreCategoryHeading"></p>
-            <div className="exploreCategory">
+            <p className="exploreCategoryHeading">Categories</p>
+            <div className="exploreCategories">
                <Link to="/category/rent">
                   <img src={SliderTwoImg} alt="rent" className="exploreCategoryImg" />
                   <p className="exploreCategoryName">Places For Rent</p>

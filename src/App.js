@@ -13,6 +13,8 @@ import Mfaq from './pages/Mfaq';
 import Mupdate from './pages/Mupdate';
 import Mcontact from './pages/Mcontact';
 import Mview from './pages/Mview';
+import ManageFAQ from './pages/ManageFAQ';
+
 import Category from './pages/Category';
 import CreateListing from './pages/CreateListing';
 import Listing from './pages/Listing';
@@ -36,7 +38,8 @@ function App() {
                <Route path="/update-faq" element={<Mupdate />} Route />
                <Route path="/contact-us" element={<Mcontact />} Route />
                <Route path="/view-faq" element={<Mview />} Route />
-               <Route path='/category/:catagoryName' element={<Category/>} />
+               <Route path='/category/:categoryName' element={<Category/>} />
+               <Route path="/manage-faq" element={<ManageFAQ />} Route/>
                <Route path='/create-listing' element={<CreateListing />} />
                <Route path='/category/:categoryName/:listingId' element={<Listing />} />
                <Route path='/contact/:landlordId' element={<Contact />} />

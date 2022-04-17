@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
-import {collection, getDocs, query, where, orderBy, limit, startAfter} from 'firebase/firestore'
+import {collection, getDocs, query, where, orderBy, limit, startAfter} from '@firebase/firestore'
 import {db} from '../firebase.config'
 import {toast} from 'react-toastify'
 import Spinner from '../components/Spinner'
@@ -14,7 +14,7 @@ function Offers() {
   const params = useParams();
 
   useEffect(() => {
-    const fetchListings = async () => {
+    const fetchListings = async () => {   
       try {
         //Get referance
         const listingsRef = collection(db, 'listings')
@@ -22,7 +22,7 @@ function Offers() {
         //Create a query
         const q = query(
           listingsRef,
-          where('Offer','==', true),
+          where('offer','==', true),
           orderBy('timestamp','desc'),
           limit(10)
         )
@@ -47,7 +47,7 @@ function Offers() {
     }
 
     fetchListings()
-  }, [])
+  },[])
 
     return (
       <div className='category'>
@@ -57,18 +57,19 @@ function Offers() {
           </p>
         </header>
         
-        {loading ? (
-          <Spinner /> 
-        ) : listings && listings.length > 0 ?(
+        {loading ? 
+          <Spinner />   
+         : listings && listings.length > 0 ?(
           <>
           <main>
             <ul className="categoryListings">
               {listings.map((listing) => (
-                  <ListingItem 
-                    listing={listing.data} 
-                    id={listing.id} 
-                    key={listing.id}
-                  />
+                  // <ListingItem  
+                  //   listing={listing.data} 
+                  //   id={listing.id} 
+                  //   key={listing.id}
+                  // />
+                  <ListingItem listing={listing.data} id={listing.id} key={listing.id}/>
               ))}
             </ul>
           </main>
@@ -80,4 +81,4 @@ function Offers() {
     );
   }
   
-  export default Offers
+  export default Offers;
