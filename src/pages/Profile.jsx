@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { getAuth, updateProfile } from 'firebase/auth';
-import { updateDoc, doc, deleteDoc, collection, getDoc, query, where, orderBy, Timestamp, getDocs} from 'firebase/firestore';
-import { db } from '../firebase.config';
-import { useNavigate, Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { useState, useEffect } from 'react'
+import { getAuth, updateProfile } from 'firebase/auth'
+import { updateDoc, doc, deleteDoc, collection, query, where, orderBy, getDocs} from 'firebase/firestore'
+import { db } from '../firebase.config'
+import { useNavigate, Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import ListingItem from '../components/ListingItem'
-import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg';
-import homeIcon from '../assets/svg/homeIcon.svg';
+import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg'
+import homeIcon from '../assets/svg/homeIcon.svg'
 import { async } from '@firebase/util';
 
 function Profile() {
@@ -17,7 +17,7 @@ function Profile() {
    const [formData, setFormData] = useState({
       name: auth.currentUser.displayName,
       email: auth.currentUser.email,
-   });
+   })
 
    const { name, email } = formData;
 
@@ -25,31 +25,31 @@ function Profile() {
 
    useEffect(() => {
       const fetchUserListings = async () => {
-         const listingsRef = collection(db, 'listings')
-
-         const q = query(
-            listingsRef,
-            where('userRef', '==', auth.currentUser.uid),
-            orderBy('timestamp', 'desc')
-         )
-
-            const querySnap = await getDocs(q)
-
-            let listings = []
-
-            querySnap.forEach((doc) => {
-               return listings.push({
-                  id: doc.id,
-                  data: doc.data()
-               })
-            })
-
-            setListings(listings)
-            setLoading(false)
+        const listingsRef = collection(db, 'listings')
+  
+        const q = query(
+          listingsRef,
+          where('userRef', '==', auth.currentUser.uid),
+          orderBy('timestamp', 'desc')
+        )
+  
+        const querySnap = await getDocs(q)
+  
+        let listings = []
+  
+        querySnap.forEach((doc) => {
+          return listings.push({
+            id: doc.id,
+            data: doc.data(),
+          })
+        })
+  
+        setListings(listings)
+        setLoading(false)
       }
-
+  
       fetchUserListings()
-   }, [auth.currentUser.uid])
+    }, [auth.currentUser.uid])
 
 
    const onLogOut = () => {
@@ -167,25 +167,25 @@ function Profile() {
                </Link>
 
                {!loading && listings?.length > 0 && (
-                  <>
-                     <p className="listingText">Your Listings</p>
-                     <ul className="listingsList">
-                        {
-                           listings.map((listing) => (
-                              <ListingItem
-                                 key={listing.id}
-                                 listing={listing.data}
-                                 id={listing.id}
-                                 onDelete={() => onDelete(listing.id)}
-                              />
-                           ))}
-                     </ul>
-                  </>
-               )}
+               <>
+                  <p className='listingText'>Your Listings</p>
+                  <ul className='listingsList'>
+                  {listings.map((listing) => (
+                     <ListingItem
+                        key={listing.id}
+                        listing={listing.data}
+                        id={listing.id}
+                        onDelete={() => onDelete(listing.id)}
+                        // onEdit={() => onEdit(listing.id)}
+                     />
+                      ))}
+                  </ul>
+               </>
+            )}
             </main>
          </div>
       </div>
-   );
+   )
 }
 
 export default Profile;
