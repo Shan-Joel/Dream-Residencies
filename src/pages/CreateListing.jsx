@@ -85,7 +85,7 @@ function CreateListing() {
              ? undefined
              : data.results[0]?.formatted_address
 
-            console.log(data)
+            // console.log(data)
  
             if (location === undefined || location.includes
                 ('undefined')) {
@@ -165,8 +165,8 @@ function CreateListing() {
           const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
           setLoading(false)
           toast.success('Listing saved')
-        //   navigate(`/category/${formDataCopy.type}/${docRef.id}`)
-        navigate('/');
+          navigate(`/category/${formDataCopy.type}/${docRef.id}`)
+        // navigate('/');
 
     }
 
@@ -352,6 +352,7 @@ function CreateListing() {
                   <label className="formLabel">Images</label>
                   <p className="imagesInfo">The first image will be the cover (max 6).</p>
                   <input className="formInputFile" type="file" id="images" onChange={onMutate} max="6" accept=".jpg,.png,.jpeg" multiple required />
+                  
                   <button type="submit" className="primaryButton createListingButton">
                      Create Listing
                   </button>
