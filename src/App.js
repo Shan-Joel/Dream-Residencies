@@ -24,6 +24,7 @@ import EditListing from './pages/EditListing';
 function App() {
    return (
       <>
+         <div className="headerLine"></div>
          <Router>
             <Routes>
                <Route path="/" element={<Explore />} Route />
@@ -39,12 +40,12 @@ function App() {
                <Route path="/update-faq" element={<Mupdate />} Route />
                <Route path="/contact-us" element={<Mcontact />} Route />
                <Route path="/view-faq" element={<Mview />} Route />
-               <Route path='/category/:categoryName' element={<Category/>} />
-               <Route path="/manage-faq" element={<ManageFAQ />} Route/>
-               <Route path='/create-listing' element={<CreateListing />} />
-               <Route path='/category/:categoryName/:listingId' element={<Listing />} />
-               <Route path='/contact/:landlordId' element={<Contact />} />
-               <Route path='/edit-listing/:listingID' element={<EditListing />} />
+               <Route path="/category/:categoryName" element={<Category />} />
+               <Route path="/manage-faq" element={<ManageFAQ />} Route />
+               <Route path="/create-listing" element={<CreateListing />} />
+               <Route path="/category/:categoryName/:listingId" element={<Listing />} />
+               <Route path="/contact/:landlordId" element={<Contact />} />
+               <Route path="/edit-listing/:listingID" element={<EditListing />} />
             </Routes>
             <Navbar />
          </Router>
