@@ -69,7 +69,7 @@ function Offers() {
         where('offer', '==', true),
         orderBy('timestamp', 'desc'),
         startAfter(lastFetchedListing),
-        limit(3)
+        limit(5)
       )
 
       // Execute query

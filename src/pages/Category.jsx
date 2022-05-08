@@ -7,9 +7,6 @@ import Spinner from '../components/Spinner';
 import ListingItem from '../components/ListingItem';
 
 function Category() {
-   const [searchTerm, setSearchTerm] = useState('');
-   console.log(searchTerm);
-
    const [listings, setListings] = useState(null);
    const [loading, setLoading] = useState(true);
    const [lastFetchedListing, setLastFetchedListing] = useState(null);
@@ -23,7 +20,7 @@ function Category() {
             const listingsRef = collection(db, 'listings');
 
             // Create a query
-            const q = query(listingsRef, where('type', '==', params.categoryName), orderBy('timestamp', 'desc'), limit(5));
+            const q = query(listingsRef, where('type', '==', params.categoryName), orderBy('timestamp', 'desc'), limit(4));
 
             // Execute query
             const querySnap = await getDocs(q);
@@ -57,7 +54,7 @@ function Category() {
          const listingsRef = collection(db, 'listings');
 
          // Create a query
-         const q = query(listingsRef, where('type', '==', params.categoryName), orderBy('timestamp', 'desc'), startAfter(lastFetchedListing), limit(3));
+         const q = query(listingsRef, where('type', '==', params.categoryName), orderBy('timestamp', 'desc'), startAfter(lastFetchedListing), limit(4));
 
          // Execute query
          const querySnap = await getDocs(q);
@@ -87,38 +84,15 @@ function Category() {
             <p className="pageHeader">{params.categoryName === 'rent' ? 'Places for rent' : 'Places for sale'}</p>
          </header>
 
-         <div className="searchContainer">
-            <input
-               type="text"
-               placeholder="Search for listings"
-               className="searchBar"
-               onChange={(event) => {
-                  setSearchTerm(event.target.value);
-               }}
-            />
-         </div>
-
          {loading ? (
             <Spinner />
          ) : listings && listings.length > 0 ? (
             <>
                <main>
                   <ul className="categoryListings">
-                     {listings
-                        .filter((listing) => {
-                           if (searchTerm == '') {
-                              return listing;
-                           } else if (listing.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                              return listing;
-                           }
-                        })
-                        .map((listing) => {
-                           return (
-                              <div>
-                                 <ListingItem listing={listing.data} id={listing.id} key={listing.id} />;
-                              </div>
-                           );
-                        })}
+                     {listings.map((listing) => (
+                        <ListingItem listing={listing.data} id={listing.id} key={listing.id} />
+                     ))}
                   </ul>
                </main>
 
