@@ -152,6 +152,7 @@ function Profile() {
                   <p>Sell or Rent your home</p>
                   <img src={arrowRight} alt="arrow right" />
                </Link>
+
                <Link to="/add-faq" className="createListing">
                   <img src={homeIcon} alt="home" />
                   <p>Add FAQ</p>
@@ -166,6 +167,8 @@ function Profile() {
                   <img src={homeIcon} alt="home" />
                   <p>View FAQ</p>
                   <img src={arrowRight} alt="arrow right" />
+                  
+               
                </Link>
 
                {!loading && listings?.length > 0 && (

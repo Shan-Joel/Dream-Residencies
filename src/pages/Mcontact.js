@@ -2,6 +2,10 @@ import React, { Component ,useState, useEffect} from 'react';
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@material-ui/core';
 import {collection, getDocs, addDoc} from "@firebase/firestore";
 import {db} from '../firebase.config';
+import 'react-toastify/dist/ReactToastify.css'
+import {toast} from "react-toastify";
+
+toast.configure()
 
 function Mcontact() {
 
@@ -17,6 +21,17 @@ function Mcontact() {
 
    const createContacts = async () => {
       await addDoc(userCollectionRef, {FirstName:newFirstName, LastName:newLastName, Email:newEmail, Quirys:newQuirys});
+
+
+      try {
+         toast.success('Successfully added information!',{
+           position: toast.POSITION.TOP_CENTER
+         })
+       } catch (error) {
+         toast.error('Please try again!',{
+           position: toast.POSITION.TOP_CENTER})
+       }
+
      }
      
 
@@ -63,9 +78,9 @@ function Mcontact() {
                      </Grid>
 
                      <Grid xs={12} item>
-                        <Button type="submit" variant="contained" color="primary" onClick={createContacts} fullWidth>
+                        <button type="submit" variant="contained" className="signInBtn-2"  onClick={createContacts} fullWidth>
                            Submit
-                        </Button>
+                        </button>
                      </Grid>
                   </Grid>
                {/* </form> */}

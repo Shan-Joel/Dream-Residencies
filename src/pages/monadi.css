@@ -10,7 +10,93 @@
 
   .view{
   margin: 40px;
-  border: 2px solid #00b4a2;
+  border: 3px solid #00b4a2;
+  border-style: outset;
   border-radius: 5px;
+  padding: 16px;
+  background-color: #d9f2d9;
+  box-shadow: 5px 10px #888888;
   }
   
+  p{
+    color: #37662b;
+  }
+
+  Button {
+    outline: none;
+    border: none;
+ }
+
+ .signInBtn-3 {
+  display: block;
+  width: 15%;
+  background-color: #00cc66;
+  padding: 16px;
+  border-radius: 3rem;
+  margin: 5px auto;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+
+
+
+.search{
+  padding: 10px;
+  font-size: 20px;
+  margin-left: 100px;
+ margin-right: 20px;
+}
+
+.q{
+  font-family: Lucida Sans Unicode;
+  font-size: 18px;
+  
+  color:  #b8b894;
+}
+
+.a{
+  font-family: Lucida Sans Unicode;
+  font-size: 18px;
+  color:  #b8b894;
+}
+
+.qati{
+  
+  font-family: Lucida Sans Unicode;
+  font-size: 18px;
+  background-color: #d9f2d9;
+  border-bottom-style: solid;
+  width: 100%;
+  
+}
+
+.qatii{
+  
+  font-family: Lucida Sans Unicode;
+  font-size: 18px;
+  background-color: #d9f2d9;
+  width: 100%;
+  
+}
+
+.signInBtn-2 {
+  display: block;
+  width: 40%;
+  background-color: #00cc66;
+  padding: 16px;
+  border-radius: 3rem;
+  margin: 10px auto;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  align-content: flex-end;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-start;
+}

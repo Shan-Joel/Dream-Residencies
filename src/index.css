@@ -942,6 +942,14 @@ button {
    font-size: 1rem;
 }
 
+.questionInput {
+   padding: 1rem 1.5rem;
+   border-radius: 1rem;
+   width: 100%;
+   border: none;
+   font-size: inherit;
+   font-family: inherit;
+}
 .searchContainer {
    max-width: 1100px;
    margin: 20px auto;
