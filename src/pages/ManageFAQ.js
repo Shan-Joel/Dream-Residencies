@@ -111,10 +111,6 @@ function ManageFAQ() {
 
 
 
-
-
-
-
               <button onClick={() => {deleteFAQ(FAQ.id);
             }} 
              variant='contained' className="signInBtn-3" >
@@ -129,7 +125,7 @@ function ManageFAQ() {
         
 
            
-         </div>
+          </div>
         </div>
       );
       })}
@@ -140,5 +136,8 @@ function ManageFAQ() {
     </div>
   );
 }
+
+
+
 
 export default ManageFAQ;
