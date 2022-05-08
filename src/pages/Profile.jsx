@@ -105,6 +105,23 @@ function Profile() {
                   <p>Sell or Rent ypur home</p>
                   <img src={arrowRight} alt="arrow right" />
                </Link>
+
+               <Link to="/add-faq" className="createListing">
+                  <img src={homeIcon} alt="home" />
+                  <p>Add FAQ</p>
+                  <img src={arrowRight} alt="arrow right" />
+               </Link>
+               <Link to="/contact-us" className="createListing">
+                  <img src={homeIcon} alt="home" />
+                  <p>Contact Us</p>
+                  <img src={arrowRight} alt="arrow right" />
+               </Link>
+               <Link to="/view-faq" className="createListing">
+                  <img src={homeIcon} alt="home" />
+                  <p>View FAQ</p>
+                  <img src={arrowRight} alt="arrow right" />
+                  
+               </Link>
             </main>
          </div>
       </div>

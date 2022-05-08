@@ -33,16 +33,17 @@ function App() {
                <Route path="/sign-up" element={<SignUp />} Route />
 
                <Route path="/add-faq" element={<Mfaq />} Route />
-               <Route path="/update-faq" element={<Mupdate />} Route />
+               <Route path="/update-faq/:id" element={<Mupdate />} Route />
                <Route path="/contact-us" element={<Mcontact />} Route />
                <Route path="/view-faq" element={<Mview />} Route />
                <Route path="/manage-faq" element={<ManageFAQ />} Route/>
+
                <Route path='/category/:catagoryName' element={<Category/>} />
                <Route path='/create-listing' element={<CreateListing />} />
             </Routes>
             <Navbar />
          </Router>
-         <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+         <ToastContainer position="top-right" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
       </>
    );
 }
