@@ -17,10 +17,14 @@ import ManageFAQ from './pages/ManageFAQ';
 
 import Category from './pages/Category';
 import CreateListing from './pages/CreateListing';
+import Listing from './pages/Listing';
+import Contact from './pages/Contact';
+import EditListing from './pages/EditListing';
 
 function App() {
    return (
       <>
+         <div className="headerLine"></div>
          <Router>
             <Routes>
                <Route path="/" element={<Explore />} Route />
@@ -36,10 +40,12 @@ function App() {
                <Route path="/update-faq/:id" element={<Mupdate />} Route />
                <Route path="/contact-us" element={<Mcontact />} Route />
                <Route path="/view-faq" element={<Mview />} Route />
-               <Route path="/manage-faq" element={<ManageFAQ />} Route/>
-
-               <Route path='/category/:catagoryName' element={<Category/>} />
-               <Route path='/create-listing' element={<CreateListing />} />
+               <Route path="/category/:categoryName" element={<Category />} />
+               <Route path="/manage-faq" element={<ManageFAQ />} Route />
+               <Route path="/create-listing" element={<CreateListing />} />
+               <Route path="/category/:categoryName/:listingId" element={<Listing />} />
+               <Route path="/contact/:landlordId" element={<Contact />} />
+               <Route path="/edit-listing/:listingID" element={<EditListing />} />
             </Routes>
             <Navbar />
          </Router>
